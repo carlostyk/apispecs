@@ -64,10 +64,10 @@
                 "responses": {}
             }
         },
-        "/xml-test": {
+        "/xml": {
             "get": {
                 "description": "Returns some XML.",
-                "operationId": "/xml-test",
+                "operationId": "/xml",
                 "responses": {}
             }
         },
