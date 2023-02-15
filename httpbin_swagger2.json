@@ -29,10 +29,10 @@
                 "responses": {}
             }
         },
-        "/get": {
+        "/get-test": {
             "get": {
                 "description": "Returns GET data.",
-                "operationId": "/get-test",
+                "operationId": "/get",
                 "responses": {}
             }
         },
