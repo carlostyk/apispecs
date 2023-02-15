@@ -32,7 +32,7 @@
         "/get": {
             "get": {
                 "description": "Returns GET data.",
-                "operationId": "/get",
+                "operationId": "/get-test",
                 "responses": {}
             }
         },
