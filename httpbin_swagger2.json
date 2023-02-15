@@ -29,7 +29,7 @@
                 "responses": {}
             }
         },
-        "/get-test": {
+        "/get": {
             "get": {
                 "description": "Returns GET data.",
                 "operationId": "/get",
@@ -64,10 +64,10 @@
                 "responses": {}
             }
         },
-        "/xml": {
+        "/xml-test": {
             "get": {
                 "description": "Returns some XML.",
-                "operationId": "/xml",
+                "operationId": "/xml-test",
                 "responses": {}
             }
         },
