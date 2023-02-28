@@ -208,7 +208,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080/informea-odata/"
+      "url": "http://localhost:8080/informea-secured/"
     }
   ]
 }
