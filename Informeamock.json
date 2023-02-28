@@ -1,0 +1,1716 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "InforMEA API",
+    "description": "InforMEA Drupal 8 API specifications for version 2.0.\n",
+    "contact": {
+      "email": "ikm@unep.org"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "2.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/informea/api/2.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "https://virtserver.swaggerhub.com/eaudeweb-drupal/InforMEA-D8-API/2.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "developers",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "paths": {
+    "/meetings": {
+      "get": {
+        "tags": [
+          "developers"
+        ],
+        "summary": "List of meetings",
+        "description": "Provide the list of meetings exposed to third parties",
+        "operationId": "getMeetings",
+        "parameters": [
+          {
+            "name": "updated",
+            "in": "query",
+            "description": "Filter by the date when the object was last updated",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01 00:21:00"
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "description": "Maximum number of records to return. Supported values: 0, 10, 50, 100. Default 10",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 100,
+              "enum": [
+                1,
+                10,
+                50,
+                100
+              ]
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "example": 220
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Return the number of results instead. Filters are applied before the count.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of meetings matching the filter criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+                    "title": {
+                      "en": "Example meeting #1 - Full meeting - EN",
+                      "ar": "Example meeting #1 - Full meeting - AR",
+                      "es": "Example meeting #1 - Full meeting - ES",
+                      "fr": "Example meeting #1 - Full meeting - FR",
+                      "ru": "Example meeting #1 - Full meeting - RU",
+                      "zh-hans": "Example meeting #1 - Full meeting - ZH"
+                    },
+                    "abbreviation": "COP 1",
+                    "treaties": [
+                      "montreal"
+                    ],
+                    "start": "2014-03-13T10:00:00Z",
+                    "end": "2014-03-18T18:00:00Z",
+                    "description": {
+                      "en": "Meeting description in English",
+                      "ar": "وصف الاجتماع باللغة العربية",
+                      "es": "Descripción de la reunión en español",
+                      "fr": "Description de la réunion en français",
+                      "ru": "Описание встречи на русском языке",
+                      "zh-hans": "会议说明中文"
+                    },
+                    "country": "ROU",
+                    "url": "https://example.com/meetings/1",
+                    "status": "cancelled",
+                    "type": "mop",
+                    "access": "public",
+                    "city": "Bucharest",
+                    "virtual": false,
+                    "repetition": "biennial",
+                    "kind": "official",
+                    "imageUrl": "https://informea.org/sites/all/themes/informea.theme/logo.png",
+                    "imageCopyright": "(c) InforMEA project. All rights reserved",
+                    "location": "Sheraton Conference Center",
+                    "latitude": 1.2345,
+                    "longitude": 6.789,
+                    "updated": "2016-08-29T09:12:33Z",
+                    "keywords": [
+                      {
+                        "term": "Access and benefit sharing",
+                        "uri": "https://informea.org/terms/access-and-benefit-sharing"
+                      },
+                      {
+                        "term": "Biodiversity",
+                        "uri": "https://informea.org/terms/biodiversity"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "9d4ef886-7b0b-4c22-a2af-4f5db6a74b54",
+                    "title": {
+                      "en": "Example meeting #2 - Virtual meeting - EN",
+                      "es": "Example meeting #2 - Virtual meeting - ES"
+                    },
+                    "abbreviation": "COP 2",
+                    "treaties": [
+                      "montreal"
+                    ],
+                    "start": "2016-08-01T10:00:00Z",
+                    "end": "2016-08-06T18:00:00Z",
+                    "url": "https://example.com/meetings/2",
+                    "country": "DE",
+                    "status": "confirmed",
+                    "type": "cop",
+                    "virtual": true,
+                    "updated": "2016-08-30T13:32:42Z"
+                  },
+                  {
+                    "id": "9cd4879c-51c5-45be-a12d-db095f362be0",
+                    "title": {
+                      "en": "Example meeting #3 - A minimal valid meeting EN"
+                    },
+                    "treaty": "montreal",
+                    "start": "2016-08-01T10:00:00Z"
+                  },
+                  {
+                    "id": "554914d6-4d05-4593-adbd-15aac25569d1",
+                    "description": {
+                      "en": "Invalid meeting without a title"
+                    },
+                    "treaty": "montreal",
+                    "start": "2016-08-01T10:00:00Z"
+                  },
+                  {
+                    "id": "bd17e00f-c0d6-4063-bf2c-dc8355603215",
+                    "title": {
+                      "en": "Invalid meeting without treaty"
+                    },
+                    "start": "2016-08-01T10:00:00Z"
+                  },
+                  {
+                    "id": "6db070a8-057f-413c-bdf2-071a4b974b66",
+                    "title": {
+                      "en": "Invalid meeting without start date"
+                    },
+                    "treaty": "montreal"
+                  },
+                  {
+                    "title": {
+                      "en": "Invalid meeting without ID"
+                    },
+                    "treaty": "montreal",
+                    "start": "2016-08-01T10:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/decisions": {
+      "get": {
+        "tags": [
+          "developers"
+        ],
+        "summary": "List of decisions",
+        "description": "Provide the list of decisions exposed to third parties",
+        "operationId": "getDecisions",
+        "parameters": [
+          {
+            "name": "updated",
+            "in": "query",
+            "description": "Filter by the date when the object was last updated",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01 00:21:00"
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "description": "Maximum number of records to return. Supported values: 0, 10, 50, 100. Default 10",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 100,
+              "enum": [
+                1,
+                10,
+                50,
+                100
+              ]
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "example": 220
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Return the number of results instead. Filters are applied before the count.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of decisions matching the filter criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Decision"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "151f345f-7ae2-4ef0-b66c-13f53514f010",
+                    "link": "https://example.com/decisions/1",
+                    "title": {
+                      "en": "Decision #1 - Full decision - EN",
+                      "ar": "Decision #1 - Full decision - AR",
+                      "es": "Decision #1 - Full decision - ES",
+                      "fr": "Decision #1 - Full decision - FR",
+                      "ru": "Decision #1 - Full decision - RU",
+                      "zh-hans": "Decision #1 - Full decision - ZH"
+                    },
+                    "longTitle": {
+                      "en": "Decision #1 - Long title - EN",
+                      "ar": "Decision #1 - Long title - AR",
+                      "es": "Decision #1 - Long title - ES",
+                      "fr": "Decision #1 - Long title - FR",
+                      "ru": "Decision #1 - Long title - RU",
+                      "zh-hans": "Decision #1 - Long title - ZH-HANS"
+                    },
+                    "summary": {
+                      "en": "Decision #1 - Summary - EN",
+                      "ar": "Decision #1 - Summary - AR",
+                      "es": "Decision #1 - Summary - ES",
+                      "fr": "Decision #1 - Summary - FR",
+                      "ru": "Decision #1 - Summary - RU",
+                      "zh-hans": "Decision #1 - Summary - ZH-HANS"
+                    },
+                    "type": "resolution",
+                    "status": "active",
+                    "number": "I/II a.",
+                    "treaty": "montreal",
+                    "published": "2016-08-01",
+                    "updated": "2018-08-03T10:00:00Z",
+                    "meetingId": "9d4ef886-7b0b-4c22-a2af-4f5db6a74b54",
+                    "meetingTitle": "",
+                    "meetingUrl": "",
+                    "content": {
+                      "en": "Decision #1 - Content - EN",
+                      "ar": "Decision #1 - Content - AR",
+                      "es": "Decision #1 - Content - ES",
+                      "fr": "Decision #1 - Content - FR",
+                      "ru": "Decision #1 - Content - RU",
+                      "zh-hans": "Decision #1 - Content - ZH-HANS"
+                    },
+                    "keywords": [
+                      {
+                        "term": "biodiversity",
+                        "url": "https://www.informea.org/terms/biodiversity"
+                      },
+                      {
+                        "term": "agriculture",
+                        "url": "https://www.informea.org/terms/agriculture"
+                      }
+                    ],
+                    "displayOrder": 1,
+                    "files": [
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-en.pdf",
+                        "content": "c2V0IHRhYnN0b3A9NAo=",
+                        "mimeType": "application/pdf",
+                        "language": "en",
+                        "filename": "cbd-en.pdf"
+                      },
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-ar.pdf",
+                        "content": "c2V0IHRhYnN0b3A9NAo=",
+                        "mimeType": "application/pdf",
+                        "language": "ar",
+                        "filename": "cbd-ar.pdf"
+                      },
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-es.pdf",
+                        "content": "c2V0IHRhYnN0b3A9NAo=",
+                        "mimeType": "application/pdf",
+                        "language": "es",
+                        "filename": "cbd-es.pdf"
+                      },
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-fr.pdf",
+                        "content": "c2V0IHRhYnN0b3A9NAo=",
+                        "mimeType": "application/pdf",
+                        "language": "fr",
+                        "filename": "cbd-fr.pdf"
+                      },
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-ru.pdf",
+                        "content": "c2V0IHRhYnN0b3A9NAo=",
+                        "mimeType": "application/pdf",
+                        "language": "ru",
+                        "filename": "cbd-ru.pdf"
+                      },
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-zh.pdf",
+                        "content": "c2V0IHRhYnN0b3A9NAo=",
+                        "mimeType": "application/pdf",
+                        "language": "zh-hans",
+                        "filename": "cbd-zh.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "e42adb32-63c8-4235-99b6-7e72bb16c4f2",
+                    "link": "https://example.com/decisions/2",
+                    "title": {
+                      "en": "Decision #2 - Demo linking to meeting through meetingTitle"
+                    },
+                    "type": "decision",
+                    "status": "amended",
+                    "number": "I/II b.",
+                    "treaty": "montreal",
+                    "published": "2016-08-01T10:00:00Z",
+                    "updated": "2018-08-05T10:00:00Z",
+                    "meetingTitle": "Example meeting #1 - Full meeting - EN",
+                    "meetingUrl": "https://example.com/meetings/32-mop",
+                    "keywords": [
+                      {
+                        "term": "biodiversity",
+                        "url": "https://www.informea.org/terms/biodiversity"
+                      }
+                    ],
+                    "displayOrder": 2
+                  },
+                  {
+                    "id": "9cd4879c-51c5-45be-a12d-db095f362be0",
+                    "title": {
+                      "en": "Decision #3 - A minimal decision"
+                    },
+                    "treaty": "montreal",
+                    "meetingId": "9d4ef886-7b0b-4c22-a2af-4f5db6a74b54",
+                    "type": "decision"
+                  },
+                  {
+                    "id": "472a662d-b28b-490f-b746-dbc8ff05173e",
+                    "summary": {
+                      "en": "Decision #4 - Invalid decision without title"
+                    },
+                    "treaty": "montreal",
+                    "meetingId": "9d4ef886-7b0b-4c22-a2af-4f5db6a74b54"
+                  },
+                  {
+                    "id": "ef65d334-8bec-46a4-ac82-8cc8e48d17ab",
+                    "title": {
+                      "en": "Decision #5 - Invalid decision without treaty"
+                    },
+                    "meetingId": "9d4ef886-7b0b-4c22-a2af-4f5db6a74b54"
+                  },
+                  {
+                    "id": "463b5550-4948-4e4f-b5d5-0705c1769ec8",
+                    "title": {
+                      "en": "Decision #6 - Invalid decision without meeting"
+                    },
+                    "treaty": "montreal"
+                  },
+                  {
+                    "title": {
+                      "en": "Decision #7 - Invalid decision ID"
+                    },
+                    "treaty": "montreal"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "tags": [
+          "developers"
+        ],
+        "summary": "List of contacts",
+        "description": "Provide the list of contacts exposed to third parties",
+        "operationId": "getContacts",
+        "parameters": [
+          {
+            "name": "updated",
+            "in": "query",
+            "description": "Filter by the date when the object was last updated",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01 00:21:00"
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "description": "Maximum number of records to return. Supported values: 0, 10, 50, 100. Default 10",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 100,
+              "enum": [
+                1,
+                10,
+                50,
+                100
+              ]
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "example": 220
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Return the number of results instead. Filters are applied before the count.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of contacts matching the filter criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contact"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+                    "treaties": [
+                      "montreal",
+                      "vienna"
+                    ],
+                    "country": "ROU",
+                    "fullName": "Mr. Mihai Ionescu",
+                    "prefix": "Mr. ",
+                    "firstName": "Ionescu",
+                    "lastName": "Mihai",
+                    "type": "Licensed NFP",
+                    "gender": 0,
+                    "position": "Director",
+                    "department": "Water management",
+                    "institution": "Ministry of Environment",
+                    "address": "Str. Frumoasă nr. 32, Ap. 13, Et. 1",
+                    "email": "mihai.stoichita@gov.ro",
+                    "phoneNumber": "+40 745 233456",
+                    "fax": "+40 745 234988",
+                    "primary": 1,
+                    "updated": "2018-08-03T10:00:00Z",
+                    "roles": [
+                      {
+                        "treaty": "montreal",
+                        "role": "Primary NFP"
+                      },
+                      {
+                        "treaty": "montreal",
+                        "role": "Technical group lead"
+                      },
+                      {
+                        "treaty": "vienna",
+                        "role": "Support contact"
+                      }
+                    ],
+                    "order": 1,
+                    "url": "https://example.com/nfp/1"
+                  },
+                  {
+                    "id": "464b3c9c-4192-4ab8-86de-d69c857c7306",
+                    "treaties": [
+                      "montreal",
+                      "vienna"
+                    ],
+                    "country": "DEU",
+                    "fullName": "Sample organization",
+                    "institution": "Sample organization",
+                    "address": "Frankfurt",
+                    "phoneNumber": "745 233456",
+                    "primary": 1,
+                    "updated": "2018-08-03T10:00:00Z",
+                    "roles": [
+                      {
+                        "treaty": "montreal",
+                        "role": "NFP"
+                      },
+                      {
+                        "treaty": "vienna",
+                        "role": "NFP"
+                      }
+                    ],
+                    "order": 2,
+                    "url": "https://example.com/nfp/2"
+                  },
+                  {
+                    "id": "09ace4e2-cec9-449d-8291-e1446c615212",
+                    "treaties": [
+                      "montreal"
+                    ],
+                    "country": "BG",
+                    "fullName": "Dr. Mariya Paspaleva",
+                    "firstName": "Paspaleva",
+                    "lastName": "Maryia",
+                    "gender": 2,
+                    "position": "Director",
+                    "department": "Water management",
+                    "institution": "Ministry of Environment",
+                    "email": "maryia.paspaleva@gov.bg",
+                    "primary": 1,
+                    "updated": "2018-08-03T10:00:00Z",
+                    "roles": [
+                      {
+                        "treaty": "montreal",
+                        "role": "Primary NFP"
+                      }
+                    ],
+                    "order": 3,
+                    "url": "https://example.com/nfp/3"
+                  },
+                  {
+                    "id": "1b142e09-9312-43c2-be82-3803b11fc5b9",
+                    "treaties": [
+                      "montreal"
+                    ],
+                    "fullName": "Invalid contact - no country",
+                    "firstName": "firstName",
+                    "lastName": "lastName",
+                    "gender": 1,
+                    "position": "position",
+                    "department": "department",
+                    "institution": "institution",
+                    "email": "email@gov.gg",
+                    "primary": 1,
+                    "updated": "2018-08-03T10:00:00Z",
+                    "roles": [
+                      {
+                        "treaty": "montreal",
+                        "role": "Primary NFP"
+                      }
+                    ],
+                    "order": 4,
+                    "url": "https://example.com/nfp/4"
+                  },
+                  {
+                    "id": "4e2fbdba-ee3a-474e-b23c-7ea9eeaa209c",
+                    "treaties": [
+                      "montreal"
+                    ],
+                    "fullName": "Invalid contact - no role",
+                    "firstName": "firstName",
+                    "lastName": "lastName",
+                    "gender": 1,
+                    "position": "position",
+                    "department": "department",
+                    "institution": "institution",
+                    "email": "email@gov.gg",
+                    "primary": 1,
+                    "updated": "2018-08-03T10:00:00Z",
+                    "order": 5,
+                    "url": "https://example.com/nfp/5"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/legislation": {
+      "get": {
+        "tags": [
+          "developers"
+        ],
+        "summary": "List of legislation",
+        "description": "Provide the list of legislation entries",
+        "operationId": "getLegislation",
+        "parameters": [
+          {
+            "name": "updated",
+            "in": "query",
+            "description": "Filter by the date when the object was last updated",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "1970-01-01 00:21:00"
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "description": "Maximum number of records to return. Supported values: 0, 10, 50, 100. Default 10",
+            "required": false,
+            "allowEmptyValue": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "example": 100,
+              "enum": [
+                1,
+                10,
+                50,
+                100
+              ]
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32",
+              "example": 220
+            }
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Return the number of results instead. Filters are applied before the count.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of legislation matching the filter criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Legislation"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "151f345f-7ae2-4ef0-b66c-13f53514f010",
+                    "title": {
+                      "en": "<EN> National Environment Protection Act, 2007",
+                      "fr": "<FR> National Environment Protection Act, 2007"
+                    },
+                    "originalTitle": "Gesetz über Naturschutz und Landschaftsentwicklung.",
+                    "source": "FAOLEX",
+                    "language": "en",
+                    "type": [
+                      "legislation",
+                      "miscellaneous"
+                    ],
+                    "abstract": {
+                      "en": "This Act provides for the sustainable use of natural resources, economic development and environmental conservation."
+                    },
+                    "country": "DEU",
+                    "territorialSubdivision": [
+                      "California",
+                      "Texas"
+                    ],
+                    "topics": [
+                      "Biological Diversity",
+                      "Marine and Freshwater"
+                    ],
+                    "regulatoryApproach": [
+                      "Bans and Restrictions"
+                    ],
+                    "number": "LEX-FAOC078334",
+                    "date": "1999-06-18",
+                    "lastAmendment": "2011-03-25",
+                    "isAmendment": true,
+                    "isRepealed": false,
+                    "status": "In force",
+                    "url": "http://www.fao.org/faolex/results/details/en/c/LEX-FAOC078334",
+                    "treaties": [
+                      "Convention on International Trade in Endangered Species of Wild Fauna and Flora",
+                      "The Convention on Biological Diversity"
+                    ],
+                    "files": [
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-en.pdf",
+                        "language": "en",
+                        "mimeType": "application/pdf",
+                        "filename": "cbd-en.pdf"
+                      },
+                      {
+                        "url": "https://www.cbd.int/doc/legal/cbd-fr.pdf",
+                        "language": "fr",
+                        "mimeType": "application/pdf",
+                        "filename": "cbd-fr.pdf"
+                      }
+                    ],
+                    "keywords": [
+                      {
+                        "term": "Access and benefit sharing",
+                        "uri": "https://www.informea.org/terms/access-and-benefit-sharing"
+                      },
+                      {
+                        "term": "Biodiversity",
+                        "uri": "https://www.informea.org/terms/biodiversity"
+                      }
+                    ],
+                    "publicationReference": "Uganda Gazette No. 49, Volume CXII, dated 27th September, 2019",
+                    "entryIntoForceNotes": "This Act enters into force on 31 July 2007.",
+                    "subFileCode": [
+                      "Agriculture",
+                      "Energy"
+                    ],
+                    "faolexOrganization": "Permanent Interstate Committee for Drought Control in the Sahel",
+                    "notes": "Relevant to fisheries, conservation.",
+                    "relations": [
+                      {
+                        "to": "9b343d7d-09ab-446c-b782-fe72e166256b",
+                        "relation": "amends"
+                      },
+                      {
+                        "to": "bd16288c-0917-42e7-a846-5d4133de48a4",
+                        "toTitle": "",
+                        "type": "legislation",
+                        "relation": "amends"
+                      }
+                    ],
+                    "updated": "2016-08-29T16:00:00Z"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Meeting": {
+        "required": [
+          "id",
+          "start",
+          "title",
+          "treaties"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          },
+          "title": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "Meeting abbreviation",
+            "example": "COP 10"
+          },
+          "treaties": {
+            "type": "array",
+            "description": "List of MEA instruments / treaties associated with this meeting",
+            "example": [
+              "cbd",
+              "cartagena",
+              "nagoya"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/Treaty"
+            }
+          },
+          "start": {
+            "type": "string",
+            "description": "Date when meeting starts",
+            "format": "date-time",
+            "example": "2016-08-25T09:00:00Z"
+          },
+          "end": {
+            "type": "string",
+            "description": "Date when meeting ends",
+            "format": "date-time",
+            "example": "2016-08-29T16:00:00Z"
+          },
+          "url": {
+            "type": "string",
+            "format": "URL",
+            "example": "https://www.example.com/meetings/sample-meeting.html"
+          },
+          "description": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "country": {
+            "type": "string",
+            "description": "ISO 3166-2 or 3166-3 country code",
+            "example": "ROU"
+          },
+          "status": {
+            "type": "string",
+            "example": "confirmed",
+            "enum": [
+              "over",
+              "tentative",
+              "confirmed",
+              "postponed",
+              "cancelled",
+              "nodate"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of meeting in relation to the instrument",
+            "example": "cop",
+            "enum": [
+              "cop",
+              "mop",
+              "subsidiary",
+              "expert",
+              "working",
+              "symposia",
+              "conference",
+              "workshop",
+              "informal",
+              "scc",
+              "stc",
+              "technical meeting",
+              "conference",
+              "conference-of-plenipotentiaries",
+              "negotiation meeting",
+              "assessment panel",
+              "oewg",
+              "impcom",
+              "Bureaux",
+              "orm",
+              "other"
+            ]
+          },
+          "access": {
+            "type": "string",
+            "description": "Type of access to the meeting",
+            "nullable": true,
+            "example": "public",
+            "enum": [
+              null,
+              "public",
+              "invitation"
+            ]
+          },
+          "city": {
+            "type": "string",
+            "description": "City where the meeting takes place"
+          },
+          "virtual": {
+            "type": "boolean",
+            "description": "The meeting is virtual or not",
+            "example": false
+          },
+          "repetition": {
+            "type": "string",
+            "description": "Repetition pattern for the meeting",
+            "nullable": true,
+            "example": "yearly",
+            "enum": [
+              null,
+              "weekly",
+              "monthly",
+              "yearly",
+              "biennial"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "description": "Target audience for the meeting",
+            "nullable": true,
+            "example": "official",
+            "enum": [
+              null,
+              "official",
+              "partner",
+              "interest"
+            ]
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "URL of a small, representative image for the meeting, displayed by InforMEA to display a listing of the meetings.",
+            "format": "url",
+            "example": "https://www.example.com/image.png"
+          },
+          "imageCopyright": {
+            "type": "string",
+            "description": "Copyright statement of the above image",
+            "example": "(c) 2008 John M. Doe. All rights reserved"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location venu of the event",
+            "example": "Nottingham Castle, grand ball room"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "Latitude of the event place in decimal degrees (ex. 23.456323). This value may be used to represent the event on a map using existing geographical applications such as Google Maps"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "Longitude of the event place in decimal degrees (ex. 23.456323). This value may be used to represent the event on a map using existing geographical applications such as Google Maps"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Keyword"
+            }
+          },
+          "updated": {
+            "description": "Date when record suffered last updated",
+            "format": "date-time",
+            "example": "2016-08-29T16:00:00Z"
+          }
+        },
+        "description": "Meeting object. Contains all information about a meeting."
+      },
+      "Decision": {
+        "required": [
+          "id",
+          "treaties"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "151f345f-7ae2-4ef0-b66c-13f53514f010"
+          },
+          "link": {
+            "type": "string",
+            "format": "url",
+            "example": "https://www.example.com/mea/cop-12/decision-1-12"
+          },
+          "title": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "longTitle": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the decision. Use one of the pre-defined values",
+            "nullable": true,
+            "example": "decision",
+            "enum": [
+              null,
+              "decision",
+              "resolution",
+              "recommendation",
+              "legislation",
+              "case"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the decision. Use one of the predefined values",
+            "nullable": true,
+            "example": "active",
+            "enum": [
+              null,
+              "draft",
+              "active",
+              "amended",
+              "retired",
+              "revised",
+              "adopted"
+            ]
+          },
+          "number": {
+            "type": "string",
+            "description": "Number of the decision. It is a combination of letters and (roman) numbers",
+            "example": "Res. XI/2"
+          },
+          "treaty": {
+            "$ref": "#/components/schemas/Treaty"
+          },
+          "published": {
+            "type": "string",
+            "format": "date",
+            "example": "2016-08-29"
+          },
+          "meetingId": {
+            "$ref": "#/components/schemas/MeetingId"
+          },
+          "meetingTitle": {
+            "type": "string",
+            "description": "English title of the meeting where the decision was taken. It is preffered to use meetingId if possible to link to the meeting, however if this is not possible use the meetingTitle"
+          },
+          "meetingUrl": {
+            "type": "string",
+            "description": "URL of the meeting where the decision was taken. This may point to the MEA website where this meeting is described.",
+            "format": "url"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content of the decision. This is a list of LocalizableString type objects. Conventions can store their decision in binary format such as PDF/Word, but also in database fields (text, blob). If the decision text is stored in a database, use this property to expose it."
+          },
+          "displayOrder": {
+            "type": "integer",
+            "description": "Background: There is no common criteria across MEAs to properly order the COP/MOP decisions. The decision number varies from one Secretariat to the other, using numbering schemes such as DECISION IX/4 etc. which cannot be properly sorted. Therefore we introduce a new numerical field to handle this functionality. Each decision will have a unique number, that will be used to order the decisions (ASCENDING) properly when displayed within the front-end of the website, example: 1, 2, 3, 4. This internal string is only used for the sorting.",
+            "format": "Int32"
+          },
+          "files": {
+            "type": "array",
+            "description": "Decision document files - This is a list of File entities. Conventions can store their decision in binary format such as PDF/Word, but also in database fields (text, blob). If the decision text is stored in a database, use this property to expose it",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
+          },
+          "keywords": {
+            "type": "array",
+            "description": "The list of terms that are used to tag this decision. The MEAs should keep a mapping between their local vocabulary terms and the InforMEA vocabulary terms.",
+            "items": {
+              "$ref": "#/components/schemas/Keyword"
+            }
+          },
+          "updated": {
+            "type": "string",
+            "description": "Date when record suffered last updated",
+            "format": "date-time",
+            "example": "2016-08-29T16:00:00Z"
+          }
+        },
+        "description": "Contains metadata information & file references to a MEA decision document."
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "treaties": {
+            "type": "array",
+            "description": "List of MEA instruments / treaties associated with this contact",
+            "example": [
+              "cbd",
+              "cartagena",
+              "nagoya"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/Treaty"
+            }
+          },
+          "country": {
+            "type": "string",
+            "description": "ISO 3166-2 or 3166-3 country code",
+            "example": "ROU"
+          },
+          "fullName": {
+            "type": "string",
+            "description": "Full name of the person or organization",
+            "example": "Mr. John M. Doe"
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Person prefix such as Mr., Dr., Ms. Etc.",
+            "example": "Mr."
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First name",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name",
+            "example": "Doe"
+          },
+          "type": {
+            "type": "string",
+            "description": "Category of contact. Depict their category of contact points: “Licensed NFP” and “Non-licensed NFP”. Free string that can be added by MEAs.",
+            "example": "Licensed NFP"
+          },
+          "gender": {
+            "type": "integer",
+            "description": "Contact gender, possible values: NULL=unknown, 0=male, 1=female",
+            "example": 1
+          },
+          "position": {
+            "type": "string",
+            "description": "Position within organization",
+            "example": "Director"
+          },
+          "department": {
+            "type": "string",
+            "description": "Work department",
+            "example": "Forest management"
+          },
+          "institution": {
+            "type": "string",
+            "description": "Organization",
+            "example": "Ministry of Environment"
+          },
+          "address": {
+            "type": "string",
+            "description": "Contact postal address. We encourage to include the country in address field, as for some contacts, they may reside in different country than one which is assigned to",
+            "format": "address"
+          },
+          "email": {
+            "type": "string",
+            "description": "E-mail address, only one email address possible",
+            "format": "mail"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Contact telephone number",
+            "format": "telephone",
+            "example": "+40 745 133096"
+          },
+          "fax": {
+            "type": "string",
+            "description": "Contact fax number",
+            "format": "fax"
+          },
+          "primary": {
+            "type": "integer",
+            "description": "Possible values 1 or 0. If 1 this contact is primary national focal point."
+          },
+          "updated": {
+            "type": "string",
+            "description": "Date when record suffered last updated",
+            "format": "date-time",
+            "example": "2016-08-29T16:00:00Z"
+          },
+          "roles": {
+            "type": "array",
+            "description": "List of PersonRole complex type. Person’s role related to a treaty. Background: Same person can have multiple roles for different treaties on a treaty (ie. CBD Focal point, Nagoya protocol body etc.)",
+            "items": {
+              "$ref": "#/components/schemas/PersonRole"
+            }
+          },
+          "order": {
+            "type": "integer",
+            "description": "This field determines the order of the person when is displayed within a list of people. Scenario: 1) Treaty profiles, a country might have multiple focal points. It might be required to display these person in certain order (ie. NFP first), therefore this field will be useful. See an example. 2) Country profile, multiple persons are displayed for a treaty. See an example.  Note: The list is ascending, smaller numbers are displayed near the top.",
+            "format": "Int32"
+          },
+          "url": {
+            "type": "string",
+            "description": "Record’s canonical URL on the MEA website",
+            "format": "url"
+          }
+        }
+      },
+      "PersonRole": {
+        "type": "object",
+        "properties": {
+          "treaty": {
+            "$ref": "#/components/schemas/Treaty"
+          },
+          "role": {
+            "type": "string",
+            "format": "The person’s role",
+            "example": "National Focal Point"
+          }
+        }
+      },
+      "File": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL to the file to be downloaded",
+            "example": "https://www.cbd.int/doc/legal/cbd-en.pdf"
+          },
+          "content": {
+            "type": "string",
+            "description": "Base64 encoded binary file",
+            "format": "Base64",
+            "example": "0dlbmVyYWxdCmJ1dHRvbnM9QFZ="
+          },
+          "mimeType": {
+            "type": "string",
+            "description": "Internet file mime-type of the file",
+            "example": "application/pdf"
+          },
+          "language": {
+            "type": "string",
+            "description": "ISO language code",
+            "example": "fr"
+          },
+          "filename": {
+            "type": "string",
+            "description": "Filename of the file if it cannot be determined from the URL",
+            "example": "1.pdf"
+          }
+        }
+      },
+      "Treaty": {
+        "type": "string",
+        "description": "Collection of MEA identifiers defined in an ad-hoc manner by the InforMEA team",
+        "enum": [
+          "aarhus",
+          "accobams",
+          "abidjan",
+          "acap",
+          "aewa",
+          "antigua",
+          "apia",
+          "aquatic-warbler",
+          "ascobans",
+          "asean",
+          "atlantic-turtles",
+          "bamako",
+          "barc-spa",
+          "barcelona",
+          "basel",
+          "base-protocol-liability",
+          "birds-of-prey",
+          "bukhara-deer",
+          "carpathian",
+          "cartagena",
+          "cartagena-conv",
+          "central-asian-flyway",
+          "central-asian-mammals",
+          "cbd",
+          "cites",
+          "cms",
+          "dugong",
+          "dumping",
+          "emepprotocol",
+          "emissionsnitrogenoxides",
+          "espoo",
+          "eurobats",
+          "gorilla",
+          "hazardous",
+          "high-andean-flamingos",
+          "iosea-marine-turtles",
+          "jeddah",
+          "industrialaccidents",
+          "kuwait",
+          "kyivsea",
+          "kyoto",
+          "land-based",
+          "lrtap",
+          "lusakaagreement",
+          "middle-european-great-bustard",
+          "minamataunep",
+          "montreal",
+          "monk-seal-atlantic",
+          "nagoya",
+          "nairobi",
+          "noumea",
+          "offshore",
+          "pacific-inslands-cetaceans",
+          "persistentorganicpollutants",
+          "plant-treaty",
+          "preventionemergency",
+          "protocolabateacidification",
+          "protocolheavymetals",
+          "protocol-integrated-coastal-zone-management-mediterranean",
+          "protocolwaterhealth",
+          "ramsar",
+          "reductionsulphuremissions",
+          "rotterdam",
+          "ruddy-headed-goose",
+          "sahelo-saharan-megafauna",
+          "barc-spa",
+          "saiga-antelope",
+          "sharks",
+          "siberian-crane",
+          "slender-billed-curlew",
+          "south-andean-huemul",
+          "southern-south-american-grassland-birds",
+          "stockholm",
+          "sulphuremissions",
+          "unea",
+          "unwatercourses",
+          "unccd",
+          "unfccc",
+          "vienna",
+          "volatileorganiccompounds",
+          "wadden-sea-seals",
+          "west-african-elephants",
+          "western-african-aquatic-mammals",
+          "whc"
+        ]
+      },
+      "Keyword": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "English term name",
+            "example": "Access and benefit sharing"
+          },
+          "uri": {
+            "type": "string",
+            "description": "The uniquely term URI identifier",
+            "format": "uri",
+            "example": "https://example.com/terms#a43e2f"
+          }
+        },
+        "description": "LEO vocabulary term"
+      },
+      "MeetingId": {
+        "type": "string",
+        "format": "uuid",
+        "example": "f48b62c0-1f45-48a5-81ea-a1acd632a067"
+      },
+      "Legislation": {
+        "required": [
+          "id",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "151f345f-7ae2-4ef0-b66c-13f53514f010"
+          },
+          "title": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "originalTitle": {
+            "type": "string",
+            "description": "Title in the original language",
+            "example": "Gesetz über Naturschutz und Landschaftsentwicklung."
+          },
+          "source": {
+            "type": "string",
+            "description": "Original data source where record was taken from. Organization / MEA name",
+            "example": "FAOLEX"
+          },
+          "language": {
+            "type": "string",
+            "description": "Original language. Should be the ISO code of one of the UN languages or have an abstract in English if not",
+            "example": "fr"
+          },
+          "type": {
+            "type": "array",
+            "description": "Type of this record / legislation",
+            "example": [
+              "legislation",
+              "miscellaneous"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "agreement",
+                "constitution",
+                "legislation",
+                "miscellaneous",
+                "policy",
+                "regulation"
+              ]
+            }
+          },
+          "abstract": {
+            "$ref": "#/components/schemas/UNMultilingualString"
+          },
+          "country": {
+            "type": "string",
+            "description": "ISO code of the country which submitted the legislation and where it applies.",
+            "example": "rou"
+          },
+          "territorialSubdivision": {
+            "type": "array",
+            "description": "Where relevant state the specific sub-division of the country (eg Scotland, Ireland, Wales for UK; California, Texas for United States etc.)",
+            "example": "California",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topics": {
+            "type": "array",
+            "description": "One or more topics that apply to this record",
+            "example": [
+              "Biological Diversity",
+              "Trade and Investment"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "Biological Diversity",
+                "Marine and Freshwater",
+                "Climate and Atmosphere",
+                "Chemicals and Waste",
+                "Land and Agriculture",
+                "Environmental Governance and Rights",
+                "Trade and Investment"
+              ]
+            }
+          },
+          "regulatoryApproach": {
+            "type": "string",
+            "description": "How the problem was tackled in the law.",
+            "enum": [
+              "Bans and Restrictions",
+              "Economic Instruments",
+              "Product standards Certification and Labeling requirements",
+              "Extended Producer Responsibility (EPR) Schemes",
+              "Waste Management Legislation",
+              "Combined Actions",
+              "Other Actions"
+            ]
+          },
+          "number": {
+            "type": "string",
+            "description": "Assigned unique identification number if available.",
+            "example": "LEX-FAOC078334"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of original text",
+            "format": "date",
+            "example": "1999-06-18"
+          },
+          "lastAmendmentDate": {
+            "type": "string",
+            "description": "Date of latest amendment/modification (where applicable)",
+            "format": "date",
+            "example": "2011-03-25"
+          },
+          "isAmendement": {
+            "type": "boolean",
+            "description": "This record is a legislation amendment",
+            "example": true
+          },
+          "isRepealed": {
+            "type": "boolean",
+            "description": "This record is a repealed",
+            "example": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "In force",
+              "Repealed",
+              "Not yet in force"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "description": "Add URL for main website where legislation can be found",
+            "format": "url",
+            "example": "http://www.fao.org/faolex/results/details/en/c/LEX-FAOC078334"
+          },
+          "treaties": {
+            "type": "array",
+            "description": "List of Multilateral Environment Agreements related to this record. Use full official name",
+            "items": {
+              "type": "string"
+            }
+          },
+          "files": {
+            "type": "array",
+            "description": "Internet link to PDF file",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
+          },
+          "keywords": {
+            "type": "array",
+            "description": "Keyword tags to describe the item",
+            "items": {
+              "$ref": "#/components/schemas/Keyword"
+            }
+          },
+          "publicationReference": {
+            "type": "string",
+            "description": "First publication when this document appeared. Where available."
+          },
+          "entryIntoForceNotes": {
+            "type": "string",
+            "description": "Entry into force notes for constitution acts."
+          },
+          "subFileCode": {
+            "type": "array",
+            "description": "Specific category for the act",
+            "example": [
+              "Agriculture",
+              "Energy"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "faolexOrganization": {
+            "type": "string",
+            "description": "FAOLEX organization, associated to specific records",
+            "example": "Permanent Interstate Committee for Drought Control in the Sahel"
+          },
+          "relations": {
+            "type": "array",
+            "description": "Describes relations between this record and other records",
+            "items": {
+              "$ref": "#/components/schemas/LegislationRelation"
+            }
+          },
+          "notes": {
+            "type": "string",
+            "description": "Add any addition notes/information here"
+          },
+          "updated": {
+            "type": "string",
+            "description": "Date when record suffered last updated",
+            "format": "date-time",
+            "example": "2016-08-29T16:00:00Z"
+          }
+        },
+        "description": "Contains metadata information & file references to a legislation record."
+      },
+      "LegislationRelation": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "Identifier of the target record in this system. Empty if it does not exists and toTitle can be filled-in",
+            "example": "9b343d7d-09ab-446c-b782-fe72e166256b"
+          },
+          "toTitle": {
+            "type": "string",
+            "description": "Title of the target record. Useful for records not existing in the system (without \"to\" field)",
+            "example": "National Environment Protection Act, 2007."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of document of target entity",
+            "example": "legislation"
+          },
+          "relation": {
+            "type": "string",
+            "description": "Type of relation",
+            "example": "amends",
+            "enum": [
+              "amends",
+              "amendedBy",
+              "implements",
+              "implementedBy",
+              "repeals",
+              "repealedBy"
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Date when relation starts",
+            "format": "datetime"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "Date when relation ends",
+            "format": "datetime"
+          }
+        }
+      },
+      "UNMultilingualString": {
+        "type": "object",
+        "properties": {
+          "ar": {
+            "type": "string",
+            "description": "String value in Arabic"
+          },
+          "en": {
+            "type": "string",
+            "description": "String value in English"
+          },
+          "es": {
+            "type": "string",
+            "description": "String value in Spanish"
+          },
+          "fr": {
+            "type": "string",
+            "description": "String value in French"
+          },
+          "ru": {
+            "type": "string",
+            "description": "String value in Russian"
+          },
+          "zh-hans": {
+            "type": "string",
+            "description": "String value in Chinese"
+          }
+        }
+      }
+    }
+  }
+}
