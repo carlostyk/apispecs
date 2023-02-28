@@ -106,7 +106,7 @@
                         "description": ""
                     }
                 }
-                "parameters": [
+                                "parameters": [
                  {
                     "name":"$top",
                     "in": "query",
@@ -159,6 +159,8 @@
                     "example": "updated desc"
                     }
                  }
+                 
+                ]
             }
         },
         "/NationalPlans": {
