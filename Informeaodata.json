@@ -1,6 +1,5 @@
 {
-  "components": { }
-  },
+  "components": {},
   "info": {
     "contact": {},
     "title": "InforMEA OAS",
@@ -68,7 +67,7 @@
               "example": "updated desc"
             }
           }
-        ],
+        ]
       }
     },
     "/CountryReports": {
@@ -158,7 +157,7 @@
               "example": "updated desc"
             }
           }
-        ],
+        ]
       }
     },
     "/NationalPlans": {
@@ -191,7 +190,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080/informea-odata/"
+      "url": "http://localhost:8080/informea-secured/"
     }
   ]
 }
