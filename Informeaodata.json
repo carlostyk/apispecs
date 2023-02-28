@@ -1,12 +1,5 @@
 {
-  "components": {
-    "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "Authorization"
-      }
-    }
+  "components": { }
   },
   "info": {
     "contact": {},
@@ -76,11 +69,6 @@
             }
           }
         ],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
       }
     },
     "/CountryReports": {
@@ -171,11 +159,6 @@
             }
           }
         ],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ]
       }
     },
     "/NationalPlans": {
