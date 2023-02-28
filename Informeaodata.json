@@ -105,8 +105,8 @@
                     "200": {
                         "description": ""
                     }
-                }
-                                "parameters": [
+                },
+                "parameters": [
                  {
                     "name":"$top",
                     "in": "query",
