@@ -1,7 +1,7 @@
 {
   "api_definition": {
     "id": "5ead711f575961000181867a",
-    "name": "Plugin Demo API",
+    "name": "Plugin Demo",
     "slug": "plugin-demo-api",
     "listen_port": 0,
     "protocol": "",
