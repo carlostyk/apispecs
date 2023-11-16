@@ -1,7 +1,7 @@
 {
   "api_definition": {
     "id": "61ca28234d94310001957b4d",
-    "name": "Go Custom IP Rate Limiter",
+    "name": "Go Custom IP Rate",
     "slug": "go-ip-rate-limit",
     "listen_port": 0,
     "protocol": "",
