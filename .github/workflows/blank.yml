@@ -7,8 +7,8 @@ jobs:
     if: github.event.pull_request.merged == true
     env:
       dashboard: https://mathematical-creature-adm.aws-use1.cloud-ara.tyk.io
-      dash_key: 2ab3e8d6e6554ccc50e020b3049201e1
-      repo: https://github.com/rewsmith/tyk-github-actions-example.git
+      dash_key: 0b510e344c04432c546a582db9d16c0d
+      repo: git@github.com:carlostyk/apispecs.git
     runs-on: ubuntu-20.04
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
