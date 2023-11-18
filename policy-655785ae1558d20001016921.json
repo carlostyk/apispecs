@@ -1,19 +1,19 @@
 {
-  "_id": "622551e4fbfac500014bcf42",
-  "id": "622551e4fbfac500014bcf42",
-  "name": "External API Products",
-  "org_id": "5e9d9544a1dcd60001d0ed20",
-  "rate": -1,
-  "per": -1,
+  "_id": "655785ae1558d20001016921",
+  "id": "655785ae1558d20001016921",
+  "name": "Default Security Policyy",
+  "org_id": "655785ae1558d2000101691e",
+  "rate": 2,
+  "per": 10,
   "quota_max": -1,
   "quota_renewal_rate": -1,
   "throttle_interval": -1,
   "throttle_retry_limit": -1,
-  "max_query_depth": -1,
+  "max_query_depth": 0,
   "access_rights": {
-    "accbdd1b89e84ec97f4f16d4e3197d5c": {
-      "api_name": "Basic Protected API",
-      "api_id": "accbdd1b89e84ec97f4f16d4e3197d5c",
+    "a82564584a4c4b346a6bbdf2cf3de4ff": {
+      "api_name": "Httpbin-route",
+      "api_id": "a82564584a4c4b346a6bbdf2cf3de4ff",
       "versions": [
         "Default"
       ],
@@ -27,16 +27,16 @@
   "hmac_enabled": false,
   "active": true,
   "is_inactive": false,
-  "date_created": "2022-03-07T00:29:24.401Z",
+  "date_created": "2023-11-17T15:24:30.201937Z",
   "tags": [],
   "key_expires_in": 0,
   "partitions": {
     "quota": false,
     "rate_limit": false,
     "complexity": false,
-    "acl": true,
+    "acl": false,
     "per_api": false
   },
-  "last_updated": "1646612964",
+  "last_updated": "1700234670",
   "meta_data": {}
 }

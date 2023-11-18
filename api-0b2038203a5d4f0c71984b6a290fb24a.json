@@ -1,13 +1,13 @@
 {
   "api_definition": {
     "id": "61d895fdfb3c3800017895ef",
-    "name": "GraphQL posts v3",
+    "name": "Post Merge",
     "slug": "graphql-posts-v3",
     "listen_port": 0,
     "protocol": "",
     "enable_proxy_protocol": false,
     "api_id": "0b2038203a5d4f0c71984b6a290fb24a",
-    "org_id": "5e9d9544a1dcd60001d0ed20",
+    "org_id": "655785ae1558d2000101691e",
     "use_keyless": true,
     "use_oauth2": false,
     "use_openid": false,
@@ -420,8 +420,8 @@
       "enabled": true,
       "execution_mode": "executionEngine",
       "version": "2",
-      "schema": "type Comment {\n  id: Int\n  name: String\n  email: String\n  body: String\n}\n\ntype Post {\n  id: Int\n  title: String\n  body: String\n  comments: [Comment]\n}\n\ntype Query {\n  user(id: Int!): User\n}\n\ntype User {\n  id: Int\n  name: String\n  email: String\n  posts: [Post]\n  transformedName: String\n}\n",
-      "last_schema_update": "2022-02-23T20:28:12.614Z",
+      "schema": "type Comment {\n  id: Int\n  name: String\n  email: String\n  body: String\n}\n\ntype Post {\n  id: Int\n  title: String\n  body: String\n  comments: [Comment]\n}\n\ntype Query {\n  user(id: String!): User\n}\n\ntype User {\n  id: Int\n  name: String\n  email: String\n  posts: [Post]\n  transformedName: String\n}\n",
+      "last_schema_update": "2023-11-18T13:04:53.305891Z",
       "type_field_configurations": [],
       "playground": {
         "enabled": false,
@@ -468,7 +468,7 @@
               }
             ],
             "config": {
-              "url": "http://json-placeholder:3000/posts?userId={{.object.id}}",
+              "url": "https://jsonplaceholder.typicode.com/posts?userId={{.object.id}}",
               "method": "GET",
               "body": "",
               "headers": {}
@@ -487,7 +487,7 @@
               }
             ],
             "config": {
-              "url": "http://json-placeholder:3000/comments?postId={{.object.id}}",
+              "url": "https://jsonplaceholder.typicode.com/comments?postId={{.object.id}}",
               "method": "GET",
               "body": "",
               "headers": {}
@@ -496,7 +496,7 @@
           {
             "kind": "REST",
             "name": "User",
-            "internal": true,
+            "internal": false,
             "root_fields": [
               {
                 "type": "Query",
@@ -506,11 +506,10 @@
               }
             ],
             "config": {
-              "url": "tyk://69a4e6fa47a645df70d2305f47da9561/{{.arguments.id}}",
+              "url": "https://jsonplaceholder.typicode.com/users/{{.arguments.id}}",
               "method": "GET",
               "body": "",
-              "headers": {},
-              "default_type_name": "User"
+              "headers": {}
             }
           }
         ]
@@ -526,6 +525,7 @@
         "sdl": ""
       },
       "supergraph": {
+        "updated_at": "2023-11-18T15:48:15.415967Z",
         "subgraphs": [],
         "merged_sdl": "",
         "global_headers": {},
@@ -542,6 +542,16 @@
       "enabled": false,
       "providers": []
     }
+  },
+  "oas": {
+    "components": {},
+    "info": {
+      "contact": {},
+      "title": "",
+      "version": ""
+    },
+    "openapi": "",
+    "paths": {}
   },
   "hook_references": [],
   "is_site": false,

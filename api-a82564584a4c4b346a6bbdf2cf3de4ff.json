@@ -1,13 +1,13 @@
 {
   "api_definition": {
-    "id": "5f535c8c74cbbf00019db1fe",
-    "name": "Detailed Analytics On",
-    "slug": "detailed-analytics-on",
+    "id": "655785ae1558d20001016920",
+    "name": "Httpbin-route",
+    "slug": "httpbin",
     "listen_port": 0,
     "protocol": "",
     "enable_proxy_protocol": false,
-    "api_id": "b982cec084c44ef56aef1a090b346757",
-    "org_id": "5e9d9544a1dcd60001d0ed20",
+    "api_id": "a82564584a4c4b346a6bbdf2cf3de4ff",
+    "org_id": "655785ae1558d2000101691e",
     "use_keyless": true,
     "use_oauth2": false,
     "use_openid": false,
@@ -27,7 +27,7 @@
       "use_cookie": false,
       "cookie_name": "",
       "disable_header": false,
-      "auth_header_name": "Authorization",
+      "auth_header_name": "authorization",
       "use_certificate": false,
       "validate_signature": false,
       "signature": {
@@ -49,133 +49,7 @@
         "use_cookie": false,
         "cookie_name": "",
         "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "basic": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "coprocess": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "hmac": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "jwt": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "oauth": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "oidc": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
+        "auth_header_name": "authorization",
         "use_certificate": false,
         "validate_signature": false,
         "signature": {
@@ -241,7 +115,7 @@
       "name": "",
       "default": "",
       "location": "header",
-      "key": "x-api-version",
+      "key": "",
       "strip_path": false,
       "strip_versioning_data": false,
       "versions": {}
@@ -260,6 +134,91 @@
           },
           "use_extended_paths": true,
           "extended_paths": {
+            "url_rewrites": [
+              {
+                "path": "/rewrite",
+                "method": "GET",
+                "match_pattern": "(.*)",
+                "rewrite_to": "",
+                "triggers": [
+                  {
+                    "on": "all",
+                    "options": {
+                      "header_matches": {
+                        "image": {
+                          "match_rx": "jpeg",
+                          "reverse": false
+                        }
+                      },
+                      "query_val_matches": {},
+                      "path_part_matches": {},
+                      "session_meta_matches": {},
+                      "request_context_matches": {},
+                      "payload_matches": {
+                        "match_rx": "",
+                        "reverse": false
+                      }
+                    },
+                    "rewrite_to": "http://host.docker.internal:5451/image/jpeg"
+                  },
+                  {
+                    "on": "all",
+                    "options": {
+                      "header_matches": {
+                        "image": {
+                          "match_rx": "png",
+                          "reverse": false
+                        }
+                      },
+                      "query_val_matches": {},
+                      "path_part_matches": {},
+                      "session_meta_matches": {},
+                      "request_context_matches": {},
+                      "payload_matches": {
+                        "match_rx": "",
+                        "reverse": false
+                      }
+                    },
+                    "rewrite_to": "http://host.docker.internal:5451/image/png"
+                  }
+                ]
+              }
+            ],
+            "track_endpoints": [
+              {
+                "path": "/rewrite",
+                "method": "GET"
+              }
+            ],
+            "validate_json": [
+              {
+                "disabled": false,
+                "path": "/mock",
+                "method": "POST",
+                "schema": {
+                  "properties": {
+                    "age": {
+                      "description": "Age in years",
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "firstName",
+                    "lastName"
+                  ],
+                  "title": "Person",
+                  "type": "object"
+                },
+                "error_response_code": 422
+              }
+            ],
             "persist_graphql": []
           },
           "global_headers": {},
@@ -294,10 +253,10 @@
     },
     "proxy": {
       "preserve_host_header": false,
-      "listen_path": "/detailed-analytics-on/",
-      "target_url": "http://httpbin",
+      "listen_path": "/httpbin-route",
+      "target_url": "http://host.docker.internal:5451",
       "disable_strip_slash": false,
-      "strip_listen_path": true,
+      "strip_listen_path": false,
       "enable_load_balancing": false,
       "target_list": [],
       "check_host_against_uptime_tests": false,
@@ -349,7 +308,7 @@
     "custom_middleware_bundle_disabled": false,
     "cache_options": {
       "cache_timeout": 60,
-      "enable_cache": true,
+      "enable_cache": false,
       "cache_all_safe_requests": false,
       "cache_response_codes": [],
       "enable_upstream_cache_control": false,
@@ -372,8 +331,8 @@
     "event_handlers": {
       "events": {}
     },
-    "enable_batch_request_support": false,
-    "enable_ip_whitelisting": false,
+    "enable_batch_request_support": true,
+    "enable_ip_whitelisting": true,
     "allowed_ips": [],
     "enable_ip_blacklisting": false,
     "blacklisted_ips": [],
@@ -387,7 +346,7 @@
       "allowed_headers": [],
       "exposed_headers": [],
       "allow_credentials": false,
-      "max_age": 24,
+      "max_age": 0,
       "options_passthrough": false,
       "debug": false
     },
@@ -403,10 +362,10 @@
       "per": 0
     },
     "strip_auth_data": false,
-    "enable_detailed_recording": true,
+    "enable_detailed_recording": false,
     "graphql": {
       "enabled": false,
-      "execution_mode": "proxyOnly",
+      "execution_mode": "",
       "version": "",
       "schema": "",
       "type_field_configurations": [],
@@ -429,6 +388,7 @@
         "sdl": ""
       },
       "supergraph": {
+        "updated_at": "2023-11-18T17:31:24.711278Z",
         "subgraphs": [],
         "merged_sdl": "",
         "global_headers": {},
@@ -445,6 +405,16 @@
       "enabled": false,
       "providers": []
     }
+  },
+  "oas": {
+    "components": {},
+    "info": {
+      "contact": {},
+      "title": "",
+      "version": ""
+    },
+    "openapi": "",
+    "paths": {}
   },
   "hook_references": [],
   "is_site": false,

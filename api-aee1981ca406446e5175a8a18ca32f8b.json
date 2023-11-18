@@ -1,14 +1,14 @@
 {
   "api_definition": {
-    "id": "6225a1b137d93600015a1731",
-    "name": "Relative Path Examples",
-    "slug": "listen-path-examples",
+    "id": "6558f7a97cdfda00013c27c3",
+    "name": "Petstore",
+    "slug": "swagger-petstore",
     "listen_port": 0,
     "protocol": "",
     "enable_proxy_protocol": false,
-    "api_id": "7d29ac67565045706a2209ab647ef22a",
-    "org_id": "5e9d9544a1dcd60001d0ed20",
-    "use_keyless": true,
+    "api_id": "aee1981ca406446e5175a8a18ca32f8b",
+    "org_id": "655785ae1558d2000101691e",
+    "use_keyless": false,
     "use_oauth2": false,
     "use_openid": false,
     "openid_options": {
@@ -27,7 +27,7 @@
       "use_cookie": false,
       "cookie_name": "",
       "disable_header": false,
-      "auth_header_name": "Authorization",
+      "auth_header_name": "",
       "use_certificate": false,
       "validate_signature": false,
       "signature": {
@@ -49,133 +49,7 @@
         "use_cookie": false,
         "cookie_name": "",
         "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "basic": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "coprocess": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "hmac": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "jwt": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "oauth": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
-        "use_certificate": false,
-        "validate_signature": false,
-        "signature": {
-          "algorithm": "",
-          "header": "",
-          "use_param": false,
-          "param_name": "",
-          "secret": "",
-          "allowed_clock_skew": 0,
-          "error_code": 0,
-          "error_message": ""
-        }
-      },
-      "oidc": {
-        "name": "",
-        "use_param": false,
-        "param_name": "",
-        "use_cookie": false,
-        "cookie_name": "",
-        "disable_header": false,
-        "auth_header_name": "Authorization",
+        "auth_header_name": "",
         "use_certificate": false,
         "validate_signature": false,
         "signature": {
@@ -203,7 +77,7 @@
     "upstream_certificates": {},
     "pinned_public_keys": {},
     "enable_jwt": false,
-    "use_standard_auth": false,
+    "use_standard_auth": true,
     "use_go_plugin_auth": false,
     "enable_coprocess_auth": false,
     "custom_plugin_auth_enabled": false,
@@ -241,17 +115,17 @@
       "name": "",
       "default": "",
       "location": "header",
-      "key": "x-api-version",
+      "key": "version",
       "strip_path": false,
       "strip_versioning_data": false,
       "versions": {}
     },
     "version_data": {
-      "not_versioned": true,
-      "default_version": "",
+      "not_versioned": false,
+      "default_version": "1.0",
       "versions": {
-        "Default": {
-          "name": "Default",
+        "1.0": {
+          "name": "1.0",
           "expires": "",
           "paths": {
             "ignored": [],
@@ -263,157 +137,369 @@
             "white_list": [
               {
                 "disabled": false,
-                "path": "one/or/more/a+",
+                "path": "/user/{username}",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "DELETE": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "one or more",
+                    "data": "",
+                    "headers": {}
+                  },
+                  "GET": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
+                    "headers": {}
+                  },
+                  "PUT": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "any/not/from/group/[^bar]$",
+                "path": "/pet/findByStatus",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
                   "GET": {
-                    "action": "reply",
+                    "action": "no_action",
                     "code": 200,
-                    "data": "any not from group",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "single/character/.$",
+                "path": "/pet/findByTags",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
                   "GET": {
-                    "action": "reply",
+                    "action": "no_action",
                     "code": 200,
-                    "data": "single character",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "multiple/wildcards/{1}/{2}",
+                "path": "/pet/{petId}/uploadImage",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "POST": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "multiple wildcards",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "any/between/[a-e]$",
+                "path": "/pet",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "POST": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "any between",
+                    "data": "",
+                    "headers": {}
+                  },
+                  "PUT": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "any/from/group/[bar]$",
+                "path": "/store/order",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "POST": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "any from group",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "or/logic/(foo|bar)",
+                "path": "/store/order/{orderId}",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "DELETE": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "or logic",
+                    "data": "",
+                    "headers": {}
+                  },
+                  "GET": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "zero/or/one/a?$",
+                "path": "/user/login",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
                   "GET": {
-                    "action": "reply",
+                    "action": "no_action",
                     "code": 200,
-                    "data": "zero or one",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "single/wildcard/{1}",
+                "path": "/user/createWithList",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "POST": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "single wildcard",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "end/of/path$",
+                "path": "/user",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
-                  "GET": {
-                    "action": "reply",
+                  "POST": {
+                    "action": "no_action",
                     "code": 200,
-                    "data": "end of path",
+                    "data": "",
                     "headers": {}
                   }
                 }
               },
               {
                 "disabled": false,
-                "path": "zero/or/more/a*",
+                "path": "/user/logout",
                 "method": "",
                 "ignore_case": false,
                 "method_actions": {
                   "GET": {
-                    "action": "reply",
+                    "action": "no_action",
                     "code": 200,
-                    "data": "zero or more",
+                    "data": "",
                     "headers": {}
                   }
                 }
+              },
+              {
+                "disabled": false,
+                "path": "/pet/{petId}",
+                "method": "",
+                "ignore_case": false,
+                "method_actions": {
+                  "DELETE": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
+                    "headers": {}
+                  },
+                  "GET": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
+                    "headers": {}
+                  },
+                  "POST": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
+                    "headers": {}
+                  }
+                }
+              },
+              {
+                "disabled": false,
+                "path": "/store/inventory",
+                "method": "",
+                "ignore_case": false,
+                "method_actions": {
+                  "GET": {
+                    "action": "no_action",
+                    "code": 200,
+                    "data": "",
+                    "headers": {}
+                  }
+                }
+              }
+            ],
+            "track_endpoints": [
+              {
+                "path": "/pet/{petId}/uploadImage",
+                "method": "POST"
+              },
+              {
+                "path": "/store/order/{orderId}",
+                "method": "GET"
+              },
+              {
+                "path": "/store/order/{orderId}",
+                "method": "DELETE"
+              },
+              {
+                "path": "/user/createWithList",
+                "method": "POST"
+              },
+              {
+                "path": "/pet/findByStatus",
+                "method": "GET"
+              },
+              {
+                "path": "/user/{username}",
+                "method": "DELETE"
+              },
+              {
+                "path": "/user/{username}",
+                "method": "PUT"
+              },
+              {
+                "path": "/user/{username}",
+                "method": "GET"
+              },
+              {
+                "path": "/store/inventory",
+                "method": "GET"
+              },
+              {
+                "path": "/pet/findByTags",
+                "method": "GET"
+              },
+              {
+                "path": "/user/logout",
+                "method": "GET"
+              },
+              {
+                "path": "/store/order",
+                "method": "POST"
+              },
+              {
+                "path": "/pet/{petId}",
+                "method": "POST"
+              },
+              {
+                "path": "/pet/{petId}",
+                "method": "DELETE"
+              },
+              {
+                "path": "/pet/{petId}",
+                "method": "GET"
+              },
+              {
+                "path": "/user/login",
+                "method": "GET"
+              },
+              {
+                "path": "/user",
+                "method": "POST"
+              },
+              {
+                "path": "/pet",
+                "method": "PUT"
+              },
+              {
+                "path": "/pet",
+                "method": "POST"
+              }
+            ],
+            "validate_json": [
+              {
+                "disabled": false,
+                "path": "/pet",
+                "method": "POST",
+                "schema": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "properties": {
+                    "category": {
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "type": "object"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "photoUrls": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "id",
+                    "name",
+                    "photoUrls",
+                    "status",
+                    "tags"
+                  ],
+                  "type": "object"
+                },
+                "error_response_code": 422
               }
             ],
             "persist_graphql": []
@@ -450,9 +536,9 @@
     },
     "proxy": {
       "preserve_host_header": false,
-      "listen_path": "/relative-path-examples/",
-      "target_url": "http://httpbin/anything/",
-      "disable_strip_slash": true,
+      "listen_path": "/pets-auth/",
+      "target_url": "https://petstore3.swagger.io/api/v3/",
+      "disable_strip_slash": false,
       "strip_listen_path": true,
       "enable_load_balancing": false,
       "target_list": [],
@@ -505,7 +591,7 @@
     "custom_middleware_bundle_disabled": false,
     "cache_options": {
       "cache_timeout": 60,
-      "enable_cache": true,
+      "enable_cache": false,
       "cache_all_safe_requests": false,
       "cache_response_codes": [],
       "enable_upstream_cache_control": false,
@@ -537,25 +623,23 @@
     "expire_analytics_after": 0,
     "response_processors": [],
     "CORS": {
-      "enable": false,
+      "enable": true,
       "allowed_origins": [
         "*"
       ],
       "allowed_methods": [
         "GET",
         "POST",
-        "HEAD"
+        "PUT"
       ],
       "allowed_headers": [
-        "Origin",
-        "Accept",
-        "Content-Type",
-        "X-Requested-With",
-        "Authorization"
+        "*"
       ],
-      "exposed_headers": [],
+      "exposed_headers": [
+        "*"
+      ],
       "allow_credentials": false,
-      "max_age": 24,
+      "max_age": 0,
       "options_passthrough": false,
       "debug": false
     },
@@ -574,8 +658,8 @@
     "enable_detailed_recording": false,
     "graphql": {
       "enabled": false,
-      "execution_mode": "proxyOnly",
-      "version": "2",
+      "execution_mode": "",
+      "version": "",
       "schema": "",
       "type_field_configurations": [],
       "playground": {
@@ -597,6 +681,7 @@
         "sdl": ""
       },
       "supergraph": {
+        "updated_at": "2023-11-18T18:01:47.558624Z",
         "subgraphs": [],
         "merged_sdl": "",
         "global_headers": {},
@@ -613,6 +698,16 @@
       "enabled": false,
       "providers": []
     }
+  },
+  "oas": {
+    "components": {},
+    "info": {
+      "contact": {},
+      "title": "",
+      "version": ""
+    },
+    "openapi": "",
+    "paths": {}
   },
   "hook_references": [],
   "is_site": false,
