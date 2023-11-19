@@ -1,0 +1,43 @@
+{
+  "_id": "655922bd7cdfda0001b93a0d",
+  "id": "655922bd7cdfda0001b93a0d",
+  "name": "Public Httpbin",
+  "org_id": "655785ae1558d2000101691e",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renewal_rate": -1,
+  "throttle_interval": -1,
+  "throttle_retry_limit": -1,
+  "max_query_depth": -1,
+  "access_rights": {
+    "353df797deb545f37496807c278d9c75": {
+      "api_name": "Httpbin-secured",
+      "api_id": "353df797deb545f37496807c278d9c75",
+      "versions": [
+        "1.0",
+        "2.0"
+      ],
+      "allowed_urls": [],
+      "restricted_types": [],
+      "limit": null,
+      "field_access_rights": [],
+      "allowance_scope": ""
+    }
+  },
+  "hmac_enabled": false,
+  "active": true,
+  "is_inactive": false,
+  "date_created": "2023-11-18T20:46:53.082838Z",
+  "tags": [],
+  "key_expires_in": 0,
+  "partitions": {
+    "quota": false,
+    "rate_limit": false,
+    "complexity": false,
+    "acl": true,
+    "per_api": false
+  },
+  "last_updated": "1700340413",
+  "meta_data": {}
+}

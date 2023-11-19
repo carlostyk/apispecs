@@ -1,12 +1,12 @@
 {
   "api_definition": {
-    "id": "6558a3377cdfda00013c27c2",
-    "name": "Post Merge REST API",
-    "slug": "merge-api",
+    "id": "6559cdcc7cdfda00019dfd48",
+    "name": "Test",
+    "slug": "test",
     "listen_port": 0,
     "protocol": "",
     "enable_proxy_protocol": false,
-    "api_id": "e5174450a8704e42526f6cb88a70560f",
+    "api_id": "64c9bdb71151427c7b9b509020429a0d",
     "org_id": "655785ae1558d2000101691e",
     "use_keyless": true,
     "use_oauth2": false,
@@ -260,22 +260,7 @@
           },
           "use_extended_paths": true,
           "extended_paths": {
-            "track_endpoints": [
-              {
-                "path": "/restify/{userId}",
-                "method": "GET"
-              }
-            ],
-            "persist_graphql": [
-              {
-                "path": "/restify/{userId}",
-                "method": "GET",
-                "operation": "query ($userId: String!) {\n  user(id: $userId) {\n    id\n    name\n    email\n    transformedName\n    posts {\n      body\n      id\n      title\n comments {\n        body\n        name\n      }\n    }\n  }\n}",
-                "variables": {
-                  "userId": "$path.userId"
-                }
-              }
-            ]
+            "persist_graphql": []
           },
           "global_headers": {},
           "global_headers_remove": [],
@@ -309,8 +294,8 @@
     },
     "proxy": {
       "preserve_host_header": false,
-      "listen_path": "/merge-api/",
-      "target_url": "http://localhost:8080/graphql-posts-v3/",
+      "listen_path": "env://mylistenpath",
+      "target_url": "http://httpbin.org/",
       "disable_strip_slash": true,
       "strip_listen_path": true,
       "enable_load_balancing": false,
@@ -421,7 +406,7 @@
     "domain": "",
     "certificates": [],
     "do_not_track": false,
-    "enable_context_vars": true,
+    "enable_context_vars": false,
     "config_data": {},
     "config_data_disabled": false,
     "tag_headers": [],
@@ -456,7 +441,7 @@
         "sdl": ""
       },
       "supergraph": {
-        "updated_at": "2023-11-18T18:56:25.119961Z",
+        "updated_at": "2023-11-19T09:04:37.613891Z",
         "subgraphs": [],
         "merged_sdl": "",
         "global_headers": {},
